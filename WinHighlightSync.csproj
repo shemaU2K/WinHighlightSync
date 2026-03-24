@@ -8,7 +8,6 @@
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
     <StartupObject></StartupObject>
-	<PublishAot>true</PublishAot>
   </PropertyGroup>
 
   <ItemGroup>
