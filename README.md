@@ -19,7 +19,9 @@ ows Registry (`HKCU\Software\Microsoft\Windows\DWM`).
 Before/After:
 ![photo1(before)](https://github.com/user-attachments/assets/f1964aa0-0994-4b61-aa5c-6689d800aa1d)
 ![photo2(after)](https://github.com/user-attachments/assets/00ab26c9-66c2-4cb9-b536-80b4026b85bd)
+
 Real-time usage:
+
 ![8cd53bae9f194290a9849555ca0a1c10](https://github.com/user-attachments/assets/127c91ca-276a-4b2b-8e03-e51c422dadf4)
 
 ## 🚀 Installation
