@@ -1,0 +1,97 @@
+Use Case:
+@startuml
+skinparam changepage true
+
+actor "Користувач" as User
+package "WinHighlightSync" {
+    usecase "Запуск програми" as UC_Start
+    usecase "Призупинення синхронізації (Pause)" as UC_Pause
+    usecase "Відновлення синхронізації (Resume)" as UC_Resume
+    usecase "Вихід з програми (Exit)" as UC_Exit
+}
+
+User --> UC_Start
+User --> UC_Pause
+User --> UC_Resume
+User --> UC_Exit
+@endum
+
+Class Diagram:
+@startuml
+
+interface IThemeSyncEngine {
+    + Start() : void
+    + Stop() : void
+    + IsRunning : bool <<get>>
+}
+
+class ThemeSyncEngine {
+    private _lastColor : int
+    private _timer : Timer
+    + IsRunning : bool
+    + Start() : void
+    + Stop() : void
+    private CheckAndSync(state: object) : void
+    == Win32 API ==
+    + {static} SetSysColors(...) : bool
+    private {static} SendMessageTimeout(...) : IntPtr
+}
+
+class TrayApplicationContext {
+    private _trayIcon : NotifyIcon
+    private _syncEngine : IThemeSyncEngine
+    + TrayApplicationContext(syncEngine: IThemeSyncEngine)
+    private CreateContextMenu() : ContextMenuStrip
+    private ToggleSync(item: ToolStripMenuItem) : void
+    private Exit() : void
+}
+
+class Program {
+    + {static} Main() : void
+}
+
+IThemeSyncEngine <|.. ThemeSyncEngine
+TrayApplicationContext o-- IThemeSyncEngine
+Program ..> TrayApplicationContext : "ініціалізує"
+Program ..> ThemeSyncEngine : "створює"
+
+@endum
+
+Sequence Diagram:
+@startuml
+actor Користувач
+participant Program
+participant ThemeSyncEngine
+participant TrayApplicationContext
+database "Windows Registry / Win32" as OS
+
+Користувач -> Program: Запуск програми
+activate Program
+
+Program -> ThemeSyncEngine: Створення екземпляру
+activate ThemeSyncEngine
+return engine
+
+Program -> TrayApplicationContext: Створення контексту програми (new)
+activate TrayApplicationContext
+
+TrayApplicationContext -> OS: Ініціалізація NotifyIcon (іконка в треї)
+TrayApplicationContext -> ThemeSyncEngine: Start()
+activate ThemeSyncEngine
+
+ThemeSyncEngine -> OS: Налаштування фонового Timer (кожні 500мс)
+return
+return
+
+Program -> TrayApplicationContext: Application.Run(context)
+deactivate Program
+
+== Фоновий процес (щопівсекунди) ==
+
+OS -> ThemeSyncEngine: Спрацювання Timer
+activate ThemeSyncEngine
+ThemeSyncEngine -> OS: Перевірка реєстру (DWM\\AccentColor)
+ThemeSyncEngine -> OS: SetSysColors() (якщо колір змінився)
+deactivate ThemeSyncEngine
+
+@endum
