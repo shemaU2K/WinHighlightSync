@@ -1,0 +1,7 @@
+-Accent Color (Акцентний колір) — колір, обраний користувачем у системі Windows для виділення елементів інтерфейсу/the color chosen by the user in Windows to highlight interface elements
+
+-System Tray (Системний трей) — область сповіщень панелі завдань Windows, призначена для фонових програм/the Windows taskbar notification area, intended for background programs
+
+-DWM (Desktop Window Manager) — менеджер вікон робочого столу Windows, що відповідає за графічні ефекти та кольори тем/the Windows desktop window manager responsible for graphic effects and theme colors
+
+-Refactoring (Рефакторинг) — зміна внутрішньої структури програми без зміни її зовнішньої поведінки для покращення читаємості та архітектури/changing the internal structure of a program without changing its external behavior to improve readability and architecture
