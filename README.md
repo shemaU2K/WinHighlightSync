@@ -23,6 +23,12 @@ Real-time usage:
 
 ![8cd53bae9f194290a9849555ca0a1c10](https://github.com/user-attachments/assets/127c91ca-276a-4b2b-8e03-e51c422dadf4)
 
+App icon: 
+
+
+![8cd53bae9f194290a9849555ca0a1c10](https://github.com/user-attachments/assets/1268c1bd-8a18-4371-8d2b-34625b6d558f)
+
+
 ## 🚀 Installation
 1. Go to the [Releases] page.
 2. Download the `WinHighlightSync.exe`.
