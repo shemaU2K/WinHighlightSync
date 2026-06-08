@@ -28,6 +28,23 @@ App icon:
 
 ![8cd53bae9f194290a9849555ca0a1c10](https://github.com/user-attachments/assets/1268c1bd-8a18-4371-8d2b-34625b6d558f)
 
+## UML Diagrams
+
+Use Case:
+
+
+<img width="1079" height="233" alt="UML1" src="https://github.com/user-attachments/assets/83464b12-775d-40b5-ba4f-b938c78481e3" />
+
+Class Diagram: 
+
+
+<img width="641" height="733" alt="UML2" src="https://github.com/user-attachments/assets/0a9c1367-5954-4756-aa40-5b8158757294" />
+
+Sequence Diagram:
+
+
+<img width="939" height="574" alt="UML3" src="https://github.com/user-attachments/assets/e255220c-e85b-467d-b032-a7792636c732" />
+
 
 ## 🚀 Installation
 1. Go to the [Releases] page.
